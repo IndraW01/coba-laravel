@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container">
     <a class="navbar-brand" href="/">MY BLOG</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -7,13 +7,16 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link @if ($title==='Home') {{ 'active' }} @endif" href="/">Home</a>
+          <a class="nav-link @if ($active==='Home') {{ 'active' }} @endif" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link @if ($title==='About') {{ 'active' }} @endif" href="/about">About</a>
+          <a class="nav-link @if ($active==='About') {{ 'active' }} @endif" href="/about">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link @if ($title==='Posts') {{ 'active' }} @endif" href="/posts">Posts</a>
+          <a class="nav-link @if ($active==='Posts') {{ 'active' }} @endif" href="/posts">Posts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link @if ($active==='Categories') {{ 'active' }} @endif" href="/categories">Categories</a>
         </li>
       </ul>
     </div>

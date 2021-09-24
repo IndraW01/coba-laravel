@@ -18,13 +18,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home', [
-        'title' => 'Home'
+        'title' => 'Home',
+        'active' => 'Home',
     ]);
 });
 
 Route::get('/about', function () {
     return view('about', [
         'title' => 'About',
+        'active' => 'About',
         'nama' => 'Indra Wijaya',
         'umur' => 19,
         'foto' => 'indra.jpeg'

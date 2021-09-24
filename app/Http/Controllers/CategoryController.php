@@ -11,14 +11,16 @@ class CategoryController extends Controller
     {
         return view('categories', [
             'title' => 'All Categories',
+            'active' => 'Categories',
             'categories' => Category::all()
         ]);
     }
 
     public function categories(Category $category)
     {
-        return view('category', [
-            'title' => 'Category ' . $category->name,
+        return view('posts', [
+            'title' => 'Category By : ' . $category->name,
+            'active' => 'Categories',
             'posts' => $category->posts
         ]);
     }

@@ -9,10 +9,9 @@ class UserController extends Controller
 {
     public function posts(User $user)
     {
-        return view('users', [
-            'title' => 'Author ' . $user->name,
-            'posts' => $user->posts,
-            'username' => $user->username
+        return view('posts', [
+            'title' => 'Author By :  ' . $user->name,
+            'posts' => $user->posts
         ]);
     }
 }
