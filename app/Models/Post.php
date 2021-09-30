@@ -13,6 +13,31 @@ class Post extends Model
 
     protected $with = ['category', 'user'];
 
+    public function scopeFilter($query, array $filters)
+    {
+        // if(isset($filters['search']) ? $filters['search'] : false) {
+        //   return $query->where(function($query) use ($filters) {
+        //     $query->where('title', 'like', '%' .$filters['search']. '%');
+        //   }); 
+        // }
+
+        if(isset($filters['search']) ? $filters['search'] : false) {
+          $query->where(fn ($query) => 
+          $query->where('title', 'like', '%' .$filters['search']. '%')
+                ->orWhere('body', 'like', '%' . $filters['search'] . '%'));
+        }
+
+        if(isset($filters['category']) ? $filters['category'] : false) {
+          $query->whereHas('category', fn($query) => 
+          $query->where('slug', $filters['category']));
+        }
+
+        if(isset($filters['author']) ? $filters['author'] : false) {
+          $query->whereHas('user', fn($query) => 
+          $query->where('username', $filters['author']));
+        }
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class);

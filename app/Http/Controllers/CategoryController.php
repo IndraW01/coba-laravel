@@ -16,12 +16,4 @@ class CategoryController extends Controller
         ]);
     }
 
-    public function categories(Category $category)
-    {
-        return view('posts', [
-            'title' => 'Category By : ' . $category->name,
-            'active' => 'Categories',
-            'posts' => $category->posts
-        ]);
-    }
 }
